@@ -45,8 +45,10 @@ a = tf.Print(z, [z], message="This is a: ")
 net_g , G_train     = generator_32(z, is_train=True, reuse = False, sig= True, batch_size=args.batchsize)
 
 
-else: 
-    dis = discriminator
+#else: 
+#    dis = discriminator
+dis = discriminator
+
 net_d , D_fake      = dis(G_train, output_size, batch_size= args.batchsize, sig = True, is_train = True, reuse = False)
 net_d2, D_legit     = dis(real_models,  output_size, batch_size= args.batchsize, sig = True, is_train= True, reuse = True)
 net_d2, D_eval      = dis(real_models,  output_size, batch_size= args.batchsize, sig = True, is_train= False, reuse = True) # this is for desciding weather to train the discriminator
@@ -74,7 +76,10 @@ g_optim = tf.train.AdamOptimizer(args.genorator_learning_rate, beta1=0.5).minimi
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
 sess=tf.Session()
-tl.ops.set_gpu_fraction(sess=sess, gpu_fraction=0.998)
+
+#tl.ops.set_gpu_fraction(sess=sess, gpu_fraction=0.998)
+tl.utils.set_gpu_fraction(gpu_fraction=0.998)
+
 sess.run(tf.global_variables_initializer())
 
 if args.load: 
