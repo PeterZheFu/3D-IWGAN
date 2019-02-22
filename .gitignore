@@ -1,2 +1,3 @@
 # ignore all npy files which are saved checkpoints
 *.npy
+*.npz
