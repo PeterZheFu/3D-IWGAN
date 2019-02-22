@@ -93,7 +93,7 @@ else:
     start = 0 
 for epoch in range(start, args.epochs):
     random.shuffle(files)
-    for idx in xrange(0, len(files)/args.batchsize):
+    for idx in range(0, int(len(files)/args.batchsize)):
         file_batch = files[idx*args.batchsize:(idx+1)*args.batchsize]
         models, start_time = make_inputs(file_batch)
         #training the discriminator and the VAE's encoder 

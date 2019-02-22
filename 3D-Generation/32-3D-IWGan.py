@@ -81,7 +81,9 @@ g_optim = tf.train.AdamOptimizer( learning_rate = 1e-4, beta1=0.5, beta2=0.9).mi
 
 ####### Training ################
 sess=tf.Session()
-tl.ops.set_gpu_fraction(sess=sess, gpu_fraction=0.998)
+#tl.ops.set_gpu_fraction(sess=sess, gpu_fraction=0.998)
+tl.utils.set_gpu_fraction(gpu_fraction=0.7)
+
 sess.run(tf.global_variables_initializer())
 
 # load checkpoints
