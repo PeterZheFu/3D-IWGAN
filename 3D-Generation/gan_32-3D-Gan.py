@@ -75,7 +75,8 @@ g_optim = tf.train.AdamOptimizer(args.genorator_learning_rate, beta1=0.5).minimi
 ####### Training ################
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
-sess=tf.Session()
+#sess=tf.Session()
+sess = tf.Session(config=config)
 
 #tl.ops.set_gpu_fraction(sess=sess, gpu_fraction=0.998)
 tl.utils.set_gpu_fraction(gpu_fraction=0.998)
