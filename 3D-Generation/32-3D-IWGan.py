@@ -40,6 +40,7 @@ real_models =  tf.placeholder(tf.float32, [args.batchsize, output_size, output_s
 
 
 #used for training genorator
+print(z)
 net_g, G_Fake =  generator_32(z, is_train=True, reuse = False, sig= False, batch_size=args.batchsize)
 
 

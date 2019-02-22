@@ -136,7 +136,8 @@ def savitzky_golay(y, window_size, order, deriv=0, rate=1):
     try:
         window_size = np.abs(np.int(window_size))
         order = np.abs(np.int(order))
-    except ValueError, msg:
+#    except ValueError, msg:
+    except ValueError as e:
         raise ValueError("window_size and order have to be of type int")
     if window_size % 2 != 1 or window_size < 1:
         raise TypeError("window_size size must be a positive odd number")
@@ -231,5 +232,5 @@ def cal_acc(zeros,ones):
     for example in ones:
         if example[0]>0.5: accuracy += 1.0 
     accuracy = accuracy/(float(len(zeros) + len(ones))) 
-    print 'The accuracy of the discriminator is: ' + str(accuracy)
+    print('The accuracy of the discriminator is: ' + str(accuracy))
     return accuracy
