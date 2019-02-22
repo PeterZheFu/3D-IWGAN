@@ -19,6 +19,7 @@ def voxel2mesh(voxels, threshold=.3):
     cube_verts = np.array(cube_verts)
     cube_faces = np.array(cube_faces) + 1
 
+    print('voxels.shape', voxels.shape)
     l, m, n = voxels.shape
 
     scale = 0.01
@@ -61,7 +62,7 @@ def voxel2obj(filename, pred, threshold=.3):
 if len(sys.argv) < 2:
     print('you need to specify what set of voxels to use')
 models = np.load(sys.argv[1])
-print models.shape
+print('models.shape: ', models.shape)
 for i,m in enumerate(models):
 	voxel2obj('current.obj', m)
 	print '-----------'

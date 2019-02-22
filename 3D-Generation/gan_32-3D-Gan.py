@@ -75,7 +75,8 @@ g_optim = tf.train.AdamOptimizer(args.genorator_learning_rate, beta1=0.5).minimi
 ####### Training ################
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
-#sess=tf.Session()
+#sess=tf.Session() #comment out this line
+# add below line if you run into 'could not create cudnn handle' error during training
 sess = tf.Session(config=config)
 
 #tl.ops.set_gpu_fraction(sess=sess, gpu_fraction=0.998)
