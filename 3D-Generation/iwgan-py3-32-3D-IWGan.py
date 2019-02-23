@@ -91,9 +91,11 @@ tl.utils.set_gpu_fraction(gpu_fraction=0.998)
 sess.run(tf.global_variables_initializer())
 
 # load checkpoints
-if args.load: 
+if args.load:
+    print('Loading from previous checkpoint') 
     load_networks(checkpoint_dir, sess, net_g, net_d, epoch = args.load_epoch)
     track_d_loss_iter, track_d_loss,_ = load_values(save_dir)
+    iter_counter = 0
 else:     
     track_d_loss_iter, track_d_loss, iter_counter = [],[],0
 
